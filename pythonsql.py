@@ -48,8 +48,11 @@ def create():
     # 1.2 - Retorna os valores com os dados inseridos pelo usuário e entrega-os junto com a sgring_sql por 'placeholders':
 
     dados = (titulo, autor, ano)
-    cursor.execute(string_sql, dados)
-    conn.commit()
+    try: 
+        cursor.execute(string_sql, dados)
+        conn.commit()
+    except:
+        print("ERRO ao CADASTRAR")
 
 # 2 - READ - Ler valores cadastrados no banco de dados:
 
@@ -109,9 +112,12 @@ def update():
     update_ano = input("Atualizando Título do Lívro- Digite o NOVO Ano do lívro: ")
 
     update_sql = "UPDATE Livros SET titulo = ?, autor = ?, ano = ? WHERE id = ?"
-    cursor.execute(update_sql, (update_titulo, update_autor, update_ano, id_livro))
+    try:
+        cursor.execute(update_sql, (update_titulo, update_autor, update_ano, id_livro))
+        conn.commit()
+    except:
+        print("ERRO ao ATUALIZAR")
 
-    conn.commit()
     read()
 
 # 4 - DELETE - Deletar dados
@@ -120,9 +126,12 @@ def delete():
     read()
     deletar_id = input("DELETAR Registro de Livros - Digite o ID do livro que deseja DELETAR: ")
     delete_sql = "DELETE FROM Livros WHERE titulo = ?"
-    cursor.execute(delete_sql, (deletar_id, ))
-    conn.commit()
-
+    try:
+        cursor.execute(delete_sql, (deletar_id, ))
+        conn.commit()
+    except:
+        print("ERRO ao TENTAR DELETAR")
+        
 def main():
     while True:
         print("""
