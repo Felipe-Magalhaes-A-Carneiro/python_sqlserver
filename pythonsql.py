@@ -20,9 +20,11 @@ print("""
         ----------------------------------------------------
 
 Seja bem-vindo(a).
-Cadastre um aluno(a)(usuario), o livro que foi emprestado e a avaliação dele sobre o livro.
+Cadastre livros no nosso Banco de Dados, no SQL Server. 
 
-ATENÇÃO: Siga as instruções em cada menu que disponibilizarmos.
+>>> Utilizaremos o método CRUD - CREATE(CRIAR), READ(LER), UPDATE(ATUALIZAR) e DELETE(DELETAR).
+
+ATENÇÃO: Siga as instruções em cada MENU que disponibilizarmos.
 """)
 
 iniciar = input("\n>>> Digite 'y' para começar ou outro digito para sair do programa: ")
@@ -33,8 +35,8 @@ iniciar = input("\n>>> Digite 'y' para começar ou outro digito para sair do pro
 
 def create():
     print("\n------ CRIANDO REGISTROS ------\n")
-    titulo = input("Digite o titulo do livro: ")
-    autor = input("Digite o autor do livro: ")
+    titulo = input("Digite o titulo do livro: ").title()
+    autor = input("Digite o autor do livro: ").title()
     ano = input("Digite o ano do livro: ")
 
 
@@ -98,7 +100,7 @@ def querry_unico():
         read()
     return
 
-# 3 - UPDATE - Atualizar dadas já registrados:
+# 3 - UPDATE - Atualizar dados já registrados:
 def update():
     print("\n------ ATUALIZANDO DADOS ------\n")
     id_livro = input("Atualizando Título do Lívro - Digite o ID do lívro que deseja modificar: ")
